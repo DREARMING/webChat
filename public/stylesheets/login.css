@@ -1,0 +1,36 @@
+.login-outer {
+  width: 400px;
+  height: 300px;
+  /*border: 1px solid #0c5460;*/
+  margin: 20vh auto;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.shadow-primary {
+  box-shadow: 0 0 8px 1px #517c84;
+}
+
+.shadow-error {
+  box-shadow: 0 0 8px 1px red;
+}
+
+.info-outer {
+  text-align: center;
+  height: 90px;
+}
+
+.errorMsg {
+  color: red;
+}
+
+.login-outer label {
+  font-size: 16px;
+}
+.login-btn-outer {
+  display: flex;
+  justify-content: center;
+}
+.login-btn {
+  width: 300px;
+}

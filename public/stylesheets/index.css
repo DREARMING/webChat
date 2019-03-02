@@ -1,0 +1,17 @@
+.user-info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.refresh-group {
+  width: 250px;
+  float: right;
+}
+
+.user-info-show {
+  position: fixed;
+  top: 60px;
+  right: 50px;
+  font-size: 16px;
+}

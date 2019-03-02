@@ -1,0 +1,26 @@
+extends layout
+
+block style
+  link(rel='stylesheet', href='/stylesheets/login.css')
+
+block scripts
+  script(src='/javascripts/login.js')
+
+block content
+  .login-outer(class=errorMsg?'shadow-error':'shadow-primary')
+    .info-outer
+      h2 管理员登录
+      if errorMsg
+        .errorMsg= errorMsg
+    form(method="post" action="/login")
+      .form-group.row
+        label(for="username").col-sm-3.col-form-label 用户名
+        .col-sm-9
+          input(type="text" placeholder="输入用户名" name="username").form-control#username
+      .form-group.row.mb-4
+        label(for="password").col-sm-3.col-form-label 密码
+        .col-sm-9
+          input(type="password" placeholder="输入密码" name="password").form-control#password
+      .form-group.login-btn-outer
+        button(type="submit").btn.btn-primary.login-btn 登录
+

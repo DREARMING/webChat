@@ -1,0 +1,21 @@
+extends layout
+
+block style
+  link(rel='stylesheet', href='/stylesheets/index.css')
+
+block scripts
+  script(src='/javascripts/main.js')
+
+block content
+  h1= title
+  .user-info-show
+    span 欢迎，#{username}。
+    a(href="/logout") 退出登录
+  br
+  .user-info-top
+    h4 在线用户信息查看
+    .input-group.input-group-sm.mb-2.refresh-group
+      input#search_input.form-control(type="text" placeholder="输入用户名全称")
+      .input-group-append
+        button#update.btn.btn-outline-secondary.btn-sm 刷新
+  iframe(src="/userInfo" style="width: 100%;min-height: 50vh;border: none;")

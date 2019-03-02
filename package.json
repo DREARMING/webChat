@@ -1,0 +1,24 @@
+{
+  "name": "webchat",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/chatserver"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect-redis": "^3.4.0",
+    "cookie-parser": "^1.4.4",
+    "debug": "~2.6.0",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "jade": "~1.11.0",
+    "log4js": "^3.0.6",
+    "morgan": "^1.9.1",
+    "mysql": "^2.16.0",
+    "serve-favicon": "^2.5.0",
+    "session-file-store": "^1.2.0",
+    "socket.io": "^2.2.0",
+    "underscore": "^1.9.1"
+  }
+}

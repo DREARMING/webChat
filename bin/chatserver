@@ -1,0 +1,31 @@
+const config = require('../config/config');
+const hello = require('../hello');
+const socketServer = require('../socket')(config.socket_io);
+const apiServer = require('../api-server')(config.api_server, socketServer);
+
+const logger = require('../log').getLogger(config.log_categories);
+
+
+//欢迎信息
+hello();
+
+/**
+ * 全局未捕获的异常处理（此处为异常的最后处理机制）
+ * 如果触发了此处的异常处理机制，请检查服务端和客户端的代码正确性
+ */
+process.on('uncaughtException', function (err) {
+    logger.error("发生致命错误！");
+    logger.error(err.stack);
+});
+
+// 启动socket服务器
+socketServer.start();
+
+// 启动api服务器
+apiServer.start();
+
+// www服务器
+if (config.isWww) {
+    const www = require('../www')(config.www, socketServer);
+    www.start();
+}
