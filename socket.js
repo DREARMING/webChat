@@ -167,6 +167,7 @@ SocketServer.prototype.initServer = function() {
          */
         socket.on('disconnect', (reason) => {
             logger.info("[" + socket.id + "]断开连接 : " + reason);
+            this.removeSocket(username, socket);
         });
 
 
@@ -550,6 +551,22 @@ SocketServer.prototype.joinLeaveRoom = function(groupId, userNameGroup, isJoin) 
         }
     });
 };
+
+SocketServer.prototype.removeSocket = function(username, socket){
+    let user = this.users.get(username);
+    // 循环遍历检查该用户已经存在的socket，将之前的客户端(type=0)强制下线
+    // 注：这里使用了逆向循环，防止删除过程中导致元素错位
+    for (let idx = user.length - 1; idx >= 0; idx--) {
+        let ele = user[idx];
+        let socketId = ele.id;
+        if(socket.id === socketId){
+            user.splice(idx,1);
+        }
+    }
+    //离开所有房间
+    socket.leaveAll();
+    socket.disconnect(true);
+}
 
 /**
  * 将新的socket放入用户的socket数组内

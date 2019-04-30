@@ -50,7 +50,7 @@ const config = {
     mysql: {        //mysql连接相关配置
         HOST: "localhost",
         USER: "root",
-        PASSWORD: "root",
+        PASSWORD: "08130125cjj",
         DATA_BASE: "webChat",
         CONNECTION_LIMIT: 20,   //连接池最大数量
         TIMEZONE: "08:00",      //时区（默认东八）
